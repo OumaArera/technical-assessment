@@ -198,3 +198,16 @@ const insertDataIntoDB = async (connection, users) => {
 // node user_upload.js --file users.csv -u root -p Arera2016# -h localhost --port 3306
 // USE user_upload_db;
 // SELECT * FROM users;
+
+
+
+// Set up password in MySQL in Ubuntu
+/*
+- sudo apt update
+- sudo apt install mysql-server
+- sudo mysql_secure_installation
+- sudo mysql
+- mysql -u root -p
+- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password';FLUSH PRIVILEGES;
+- EXIT;
+*/ 
