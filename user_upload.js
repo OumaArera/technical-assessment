@@ -5,6 +5,7 @@ const csv = require('csv-parser');
 const mysql = require('mysql2/promise'); 
 const yargs = require('yargs');
 
+
 /*
 - This section uses yargs to parse command-line arguments.
 - It allows users to specify the CSV file to be processed, 
@@ -49,6 +50,7 @@ const argv = yargs
   .argv;
 
 
+
 /*
 - This function establishes a connection to the MySQL database using the mysql2/promise library.
 - The connection parameters are taken from the command-line arguments (host, port, username, password).
@@ -69,6 +71,7 @@ const connectToDatabase = async () => {
       process.exit(1);
     }
 };
+
 
 
 /*
@@ -93,6 +96,7 @@ const createUsersTable = async (connection) => {
       console.error('Error creating table:', error.message);
     }
 };
+
 
 /*
 - This function processes the CSV file, parsing each row into an object containing name, surname, and email.
@@ -137,12 +141,14 @@ const processCSVFile = async (connection, dryRun) => {
     });
 };
 
+
 /*
 - This helper function capitalizes the first letter of a string and converts the rest of the string to lowercase.
 */ 
 const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };
+
 
 /*
 - This function checks whether an email is in a valid format using a regular expression. 
@@ -152,6 +158,7 @@ const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email) && email.split('@')[1].includes('.');
 };
+
 
 /*
 - This function inserts the processed user data into the users table in the database. 
@@ -169,6 +176,7 @@ const insertDataIntoDB = async (connection, users) => {
     }
     console.log('Data inserted successfully.');
 };
+
 
 /*
 - This is the main entry point of the script.
@@ -193,6 +201,15 @@ const insertDataIntoDB = async (connection, users) => {
     }
 })();
 
+
+
+
+
+
+
+
+
+
 // node user_upload.js --create_table -u root -p Arera2016# -h localhost --port 3306
 // node user_upload.js --file users.csv --dry_run -u root -p Arera2016# -h localhost --port 3306
 // node user_upload.js --file users.csv -u root -p Arera2016# -h localhost --port 3306
@@ -211,3 +228,7 @@ const insertDataIntoDB = async (connection, users) => {
 - ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_new_password';FLUSH PRIVILEGES;
 - EXIT;
 */ 
+
+
+// npm init -y
+// npm install mysql2 yargs fs csv-parser
