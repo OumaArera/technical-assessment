@@ -1,0 +1,27 @@
+{
+  "name": "technical-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OumaArera/technical-assessment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OumaArera/technical-assessment/issues"
+  },
+  "homepage": "https://github.com/OumaArera/technical-assessment#readme",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "fs": "^0.0.1-security",
+    "mysql2": "^3.11.0",
+    "netstat": "^0.0.2",
+    "yargs": "^17.7.2"
+  }
+}
